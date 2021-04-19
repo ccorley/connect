@@ -18,11 +18,17 @@ The LinuxForHealth pyConnect development environment requires the following:
 - [git](https://git-scm.com) for project version control
 - [mkcert](https://github.com/FiloSottile/mkcert) for local trusted certificates
 - [Python 3.8 or higher](https://www.python.org/downloads/mac-osx/) for runtime/coding support
+- [Poetry](https://python-poetry.org/docs/) for Python dependency management  
 - [Docker Compose](https://docs.docker.com/compose/install/) for a local container runtime
 
 For Windows 10 users, we suggest using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 ### Set Up A Local Environment
+### Verify poetry installation
+```shell
+poetry --version
+```
+
 #### Clone the project and navigate to the root directory
 ```shell
 git clone https://github.com/LinuxForHealth/pyconnect
@@ -31,14 +37,15 @@ cd pyconnect
 
 #### Create a virtual environment
 ```shell
-python3 -m venv venv
-source venv/bin/activate
-pip install --upgrade pip
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip 
 ```
 
-#### Install pyconnect with dev and test dependencies
+#### Install pyconnect wit
 ```shell
-pip install -e .[dev,test]
+poetry install
+# pip install -e .[dev,test]
 # note if using zsh shell the extra dependencies require quoting
 # pip install -e ".[dev,test]"
 ```
